@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pablo M. Berná — Mathematician</title>
+  <meta name="description" content="Academic website of Pablo M. Berná, Tenure Track Professor at CUNEF Universidad. Research in greedy approximation theory, Banach spaces, and foundations of machine learning.">
+  <meta name="author" content="Pablo M. Berná">
+  <meta property="og:title" content="Pablo M. Berná — Mathematician">
+  <meta property="og:description" content="Tenure Track Professor at CUNEF Universidad. Specialist in greedy approximation theory and functional analysis.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0c1f3f;
+      --navy2: #1a3560;
+      --gold: #b8922a;
+      --gold-light: #e8c97a;
+      --cream: #f7f4ef;
+      --cream2: #ece8e0;
+      --text: #1a1614;
+      --muted: #5a5550;
+      --border: rgba(30,30,20,0.12);
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem; height: 56px;
+    }
+    .nav-logo {
+      font-family: 'DM Mono', monospace; font-size: 13px;
+      color: var(--gold-light); letter-spacing: 0.08em; text-decoration: none;
+    }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul li a {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--gold-light); font-size: 22px; }
+
+    /* ── HERO ── */
+    .hero-wrap { background: var(--navy); }
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 7rem 3rem 6rem;
+      display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center;
+    }
+    .hero-text h1 {
+      font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400;
+      color: #fff; line-height: 1.15; margin-bottom: 0.5rem;
+    }
+    .title-line {
+      font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold-light);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .title-line span::before { content: '◆ '; font-size: 8px; }
+    .hero-text p { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 520px; margin-bottom: 2rem; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .hero-links a {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+    .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .ids-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .id-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.05em;
+      padding: 0.35rem 0.75rem; border-radius: 2px; text-decoration: none; border: 1px solid; transition: all 0.2s;
+    }
+    .id-orcid { background: rgba(166,206,57,0.12); border-color: rgba(166,206,57,0.4); color: #a6ce39; }
+    .id-orcid:hover { background: rgba(166,206,57,0.22); }
+    .id-scopus { background: rgba(232,201,122,0.12); border-color: rgba(232,201,122,0.35); color: var(--gold-light); }
+    .id-scopus:hover { background: rgba(232,201,122,0.22); }
+
+    /* Hero card */
+    .hero-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px; padding: 2rem;
+    }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat { text-align: center; }
+    .stat .num { font-family: 'EB Garamond', serif; font-size: 2.6rem; color: var(--gold-light); line-height: 1; }
+    .stat .lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+    .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
+    .hero-badges { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); line-height: 2; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+    .section-label {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+    }
+    h2 { font-family: 'EB Garamond', serif; font-size: 2.2rem; font-weight: 400; color: var(--navy); margin-bottom: 2.5rem; }
+
+    /* ── RESEARCH ── */
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .research-card {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 1.75rem; border-radius: 3px; position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .research-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(12,31,63,0.1); }
+    .research-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--navy2); }
+    .research-card h3 { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; }
+    .research-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--cream2); }
+    .pub-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .filter-btn {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em;
+      padding: 0.4rem 1rem; border-radius: 2px; border: 1px solid var(--border);
+      background: transparent; cursor: pointer; color: var(--muted); transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-item {
+      background: var(--white); border: 1px solid var(--border); border-top: none;
+      padding: 1.25rem 1.75rem; display: grid; grid-template-columns: 52px 1fr auto;
+      gap: 1rem; align-items: start; transition: background 0.2s;
+    }
+    .pub-item:first-child { border-top: 1px solid var(--border); border-radius: 3px 3px 0 0; }
+    .pub-item:last-child { border-radius: 0 0 3px 3px; }
+    .pub-item:hover { background: var(--cream); }
+    .pub-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); padding-top: 3px; }
+    .pub-title { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--navy); margin-bottom: 0.2rem; }
+    .pub-authors { font-size: 0.9rem; color: var(--muted); font-style: italic; margin-bottom: 0.2rem; }
+    .pub-journal { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); }
+    .pub-meta { text-align: right; }
+    .pub-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .pub-tag {
+      display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px;
+      padding: 2px 7px; border-radius: 2px; margin-top: 4px;
+    }
+    .tag-published { background: #e8f0e0; color: #2d5a1a; }
+    .tag-submitted { background: #e8eef7; color: #0c3d6e; }
+
+    /* ── TALKS ── */
+    #talks { background: var(--cream); }
+    .talks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+    .talk-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 3px;
+      padding: 1.5rem; display: grid; grid-template-columns: 40px 1fr; gap: 1rem;
+    }
+    .talk-year {
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold);
+      writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
+      align-self: center; letter-spacing: 0.1em;
+    }
+    .talk-title { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--navy); font-style: italic; margin-bottom: 0.25rem; }
+    .talk-venue { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 0.2rem; }
+    .talk-loc { font-size: 0.85rem; color: var(--muted); }
+    .subsection-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy2); margin-bottom: 1rem; }
+    .org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .org-item { background: var(--navy); padding: 1.25rem; border-radius: 3px; }
+    .org-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+    .org-name { font-family: 'EB Garamond', serif; font-size: 0.95rem; color: rgba(255,255,255,0.9); margin-bottom: 0.2rem; }
+    .org-place { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+    /* ── TEACHING ── */
+    #teaching { background: var(--white); }
+    .teaching-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .teach-block { padding: 1.75rem; border: 1px solid var(--border); border-radius: 3px; }
+    .teach-block-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .teach-item { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .teach-item:last-child { border-bottom: none; }
+    .teach-course { font-family: 'EB Garamond', serif; font-size: 0.95rem; }
+    .teach-years { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap; margin-left: 0.75rem; }
+    .phd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .phd-block { }
+    .phd-status { font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .phd-name { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1rem; margin-bottom: 0.2rem; }
+    .phd-topic { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--navy); }
+    #contact h2 { color: var(--white); }
+    #contact .section-label { color: var(--gold-light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .contact-intro { color: rgba(255,255,255,0.7); margin-bottom: 1.75rem; }
+    .contact-detail { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+    .contact-icon {
+      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px;
+      display: flex; align-items: center; justify-content: center; color: var(--gold-light); font-size: 17px; flex-shrink: 0;
+    }
+    .contact-info-text { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.7); }
+    .contact-info-text strong { display: block; font-size: 10px; color: var(--gold-light); margin-bottom: 2px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .contact-info-text a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .contact-info-text a:hover { color: var(--gold-light); }
+    .affiliations { display: flex; flex-direction: column; gap: 0.85rem; }
+    .affil-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 1.1rem 1.4rem; border-radius: 3px; }
+    .affil-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2px; }
+    .affil-org { font-family: 'EB Garamond', serif; font-size: 1rem; color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #071525; padding: 1.75rem 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); }
+    .footer-ids { display: flex; gap: 0.75rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      nav ul { display: none; }
+      nav ul.open { display: flex; flex-direction: column; position: absolute; top: 56px; left: 0; right: 0; background: var(--navy); padding: 1rem 1.5rem; gap: 1rem; }
+      .nav-hamburger { display: block; }
+      .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
+      .hero-card { order: -1; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 3.5rem 0; }
+      .research-grid { grid-template-columns: 1fr 1fr; }
+      .talks-grid { grid-template-columns: 1fr; }
+      .org-grid { grid-template-columns: 1fr; }
+      .teaching-grid { grid-template-columns: 1fr; }
+      .phd-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .hero-text h1 { font-size: 2.4rem; }
+      .research-grid { grid-template-columns: 1fr; }
+      .pub-item { grid-template-columns: 40px 1fr; }
+      .pub-meta { display: none; }
+      h2 { font-size: 1.8rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text { animation: fadeUp 0.7s ease both; }
+    .hero-card  { animation: fadeUp 0.7s 0.15s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <a href="#" class="nav-logo">P. M. Berná</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <i class="ti ti-menu-2"></i>
+  </button>
+  <ul id="navMenu">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Pablo M.<br>Berná</h1>
+      <div class="title-line">
+        <span>PhD Mathematics</span>
+        <span>Tenure Track Professor</span>
+        <span>CUNEF Universidad</span>
+      </div>
+      <p>Specialist in greedy approximation theory in Banach and quasi-Banach spaces. More than 30 publications in high-impact journals, with active research in foundations of machine learning.</p>
+      <div class="hero-links">
+        <a href="#publications" class="btn-primary">View Publications</a>
+        <a href="#contact" class="btn-ghost">Contact</a>
+      </div>
+      <div class="ids-row">
+        <a href="https://orcid.org/0000-0001-7685-0886" class="id-badge id-orcid" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.891-1.628 3.891-3.722 0-2.016-1.391-3.722-3.891-3.722h-2.297z"/></svg>
+          ORCID 0000-0001-7685-0886
+        </a>
+        <a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" class="id-badge id-scopus" target="_blank" rel="noopener">
+          <i class="ti ti-book" style="font-size:13px;" aria-hidden="true"></i>
+          Scopus 57192591875
+        </a>
+      </div>
+    </div>
+    <div class="hero-card" aria-label="Key stats">
+      <div class="stat-grid">
+        <div class="stat"><div class="num">33</div><div class="lbl">Publications</div></div>
+        <div class="stat"><div class="num">7</div><div class="lbl">Under review</div></div>
+        <div class="stat"><div class="num">2000+</div><div class="lbl">Teaching hours</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">PhD students</div></div>
+      </div>
+      <hr class="stat-divider">
+      <div class="hero-badges">
+        <div>◆ Sexenio reconocido 2018–2023</div>
+        <div>◆ ANECA: Titular + Contratado Doctor</div>
+        <div>◆ Subdirector EPS, CUNEF</div>
+        <div>◆ Secretario adjunto, RSME</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="section-label">Research areas</div>
+    <h2>Mathematical Interests</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>Greedy Approximation Theory</h3>
+        <p>Study of thresholding greedy algorithms, Lebesgue-type inequalities, and optimality conditions for bases in Banach and quasi-Banach spaces.</p>
+      </div>
+      <div class="research-card">
+        <h3>Functional Analysis</h3>
+        <p>Geometry of Banach spaces, democratic and bidemocratic bases, quasi-greedy bases, and their structural properties in sequence spaces.</p>
+      </div>
+      <div class="research-card">
+        <h3>AI &amp; Machine Learning Foundations</h3>
+        <p>Mathematical underpinnings of sparse learning, step-size decay in greedy methods, and connections to deep learning and tensor representations.</p>
+      </div>
+      <div class="research-card">
+        <h3>Nonlinear Approximation</h3>
+        <p>Best m-term approximation, approximation spaces, and their relations with Lorentz spaces and interpolation theory.</p>
+      </div>
+      <div class="research-card">
+        <h3>TDA &amp; Greedy Algorithms</h3>
+        <p>Emerging connections between Topological Data Analysis and Temlyakov's greedy algorithms as a new research direction.</p>
+      </div>
+      <div class="research-card">
+        <h3>Nonlocal PDE &amp; Variational Problems</h3>
+        <p>Nonlocal diffusion equations with dynamical boundary conditions, and universality results for non-linear convex variational problems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Scientific output</div>
+    <h2>Publications</h2>
+    <div class="pub-filter" role="group" aria-label="Filter publications">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="published">Published</button>
+      <button class="filter-btn" data-filter="submitted">Submitted / In press</button>
+    </div>
+    <div class="pub-list" id="pubList" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="container">
+    <div class="section-label">Dissemination</div>
+    <h2>Talks &amp; Conferences</h2>
+    <div class="subsection-label" style="margin-bottom:1.25rem;">Invited talks — selection</div>
+    <div class="talks-grid" id="talksList"></div>
+    <div style="margin-top:2.5rem;">
+      <div class="subsection-label" style="margin-bottom:1rem;">Organisation of sessions &amp; events</div>
+      <div class="org-grid">
+        <div class="org-item">
+          <div class="org-role">Parallel session · Organiser</div>
+          <div class="org-name">RSME Young Researchers Conference 2025</div>
+          <div class="org-place">Numerical Methods for Applied Mathematics · Bilbao, Feb 2025</div>
+        </div>
+        <div class="org-item">
+          <div class="org-role">Parallel session · Organiser</div>
+          <div class="org-name">RSME Biennial Congress 2024</div>
+          <div class="org-place">Numerical Methods and Computational Mathematics · Pamplona, Jan 2024</div>
+        </div>
+        <div class="org-item">
+          <div class="org-role">Organising committee</div>
+          <div class="org-name">Applied Math &amp; Statistics Seminar</div>
+          <div class="org-place">CEU San Pablo University · 2020–2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="container">
+    <div class="section-label">Academic teaching</div>
+    <h2>Teaching</h2>
+    <div class="teaching-grid">
+      <div class="teach-block">
+        <div class="teach-block-label">CUNEF Universidad · 2022–2026</div>
+        <div class="teach-item"><span class="teach-course">Mathematical Analysis II &amp; III</span><span class="teach-years">2022–26</span></div>
+        <div class="teach-item"><span class="teach-course">Calculus II</span><span class="teach-years">2022–26</span></div>
+        <div class="teach-item"><span class="teach-course">Statistical Inference</span><span class="teach-years">2022–26</span></div>
+        <div class="teach-item"><span class="teach-course">Data Analysis</span><span class="teach-years">2022–26</span></div>
+        <div class="teach-item"><span class="teach-course">Probability &amp; Statistical Inference</span><span class="teach-years">2022–26</span></div>
+      </div>
+      <div class="teach-block">
+        <div class="teach-block-label">UTAMED · 2025–2026</div>
+        <div class="teach-item"><span class="teach-course">Mathematics for AI and Deep Learning</span><span class="teach-years">2025–26</span></div>
+        <div style="padding:0.4rem 0;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">Master in Artificial Intelligence</div>
+        <div class="teach-block-label" style="margin-top:1.5rem;">Previous positions</div>
+        <div class="teach-item"><span class="teach-course">CEU San Pablo: Math I, Dynamical Systems</span><span class="teach-years">2020–22</span></div>
+        <div class="teach-item"><span class="teach-course">European University: Calculus, Biostatistics</span><span class="teach-years">2020–22</span></div>
+      </div>
+    </div>
+
+    <!-- PhD -->
+    <div style="margin-top:2.5rem;padding:1.75rem;background:var(--cream2);border-radius:3px;border:1px solid var(--border);">
+      <div class="section-label" style="margin-bottom:1.25rem;">PhD Supervision</div>
+      <div class="phd-grid">
+        <div class="phd-block">
+          <div class="phd-status" style="color:var(--gold);">Ongoing · 2024–2027</div>
+          <div class="phd-name">Andrea García Pons</div>
+          <div class="phd-topic">Greedy algorithms in Banach spaces · CEU Universities</div>
+        </div>
+        <div class="phd-block">
+          <div class="phd-status" style="color:var(--gold);">Ongoing · 2023–2026</div>
+          <div class="phd-name">David González Moro</div>
+          <div class="phd-topic">Greedy-type bases and nonlinear approximation theory · CEU Universities</div>
+        </div>
+        <div class="phd-block">
+          <div class="phd-status" style="color:var(--muted);">Completed · 2019–2023</div>
+          <div class="phd-name">Hung Viet Chu</div>
+          <div class="phd-topic">Thresholding Greedy Algorithm · UIUC (co-advisor)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get in touch</div>
+    <h2>Contact &amp; Affiliations</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Feel free to reach out for research collaborations, seminar invitations, or questions about the Mathematical Engineering programme at CUNEF.</p>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+          <div class="contact-info-text"><strong>Email</strong><a href="mailto:pablo.berna@cunef.edu">pablo.berna@cunef.edu</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+          <div class="contact-info-text"><strong>Institution</strong>CUNEF Universidad, Madrid, España</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon" style="padding:0; justify-content:center;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(232,201,122,0.9)" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.891-1.628 3.891-3.722 0-2.016-1.391-3.722-3.891-3.722h-2.297z"/></svg>
+          </div>
+          <div class="contact-info-text"><strong>ORCID</strong><a href="https://orcid.org/0000-0001-7685-0886" target="_blank" rel="noopener">0000-0001-7685-0886</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
+          <div class="contact-info-text"><strong>Scopus</strong><a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" target="_blank" rel="noopener">57192591875</a></div>
+        </div>
+      </div>
+      <div class="affiliations">
+        <div class="affil-item">
+          <div class="affil-role">Tenure Track Professor · Subdirector EPS</div>
+          <div class="affil-org">CUNEF Universidad, Madrid</div>
+        </div>
+        <div class="affil-item">
+          <div class="affil-role">Secretario adjunto</div>
+          <div class="affil-org">Real Sociedad Matemática Española (RSME)</div>
+        </div>
+        <div class="affil-item">
+          <div class="affil-role">Editorial Board Member</div>
+          <div class="affil-org">Demonstratio Mathematica (Q1) · J. Mathematical Analysis</div>
+        </div>
+        <div class="affil-item">
+          <div class="affil-role">Instructor, Máster en IA</div>
+          <div class="affil-org">UTAMED Universidad</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Pablo M. Berná · CUNEF Universidad</span>
+  <div class="footer-ids">
+    <a href="https://orcid.org/0000-0001-7685-0886" class="id-badge id-orcid" target="_blank" rel="noopener" style="font-size:10px;">ORCID</a>
+    <a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" class="id-badge id-scopus" target="_blank" rel="noopener" style="font-size:10px;">Scopus</a>
+  </div>
+</footer>
+
+<script>
+  /* ── DATA ── */
+  const publications = [
+    {num:"1",title:"Conditional bases with Property (A)",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Constructive Approximation (accepted March 2026)",year:"2026",status:"published"},
+    {num:"2",title:"Step-Size Decay and Structural Stagnation in Greedy Sparse Learning",authors:"P.M. Berná",journal:"Mathematics 2026, 14(6), 967",year:"2026",status:"published"},
+    {num:"3",title:"The Weak TGA in p-Banach spaces",authors:"P.M. Berná, A. García",journal:"Dolomites Research Notes on Approximation, 19(1), 48–55",year:"2026",status:"published"},
+    {num:"4",title:"On sequential greedy-like bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Ann. Funct. Anal. 16, 36",year:"2025",status:"published"},
+    {num:"5",title:"On approximation spaces and Greedy-type bases",authors:"P.M. Berná, H.V. Chu, E. Hernández",journal:"Ann. Funct. Anal. 16:7",year:"2025",status:"published"},
+    {num:"6",title:"Approximation by polynomials with constant coefficients and the Thresholding Greedy Algorithm",authors:"M. Berasategui, P.M. Berná, D. González",journal:"Carpathian J. Math. 41, no. 1",year:"2025",status:"published"},
+    {num:"7",title:"Universality for non-linear convex variational problems",authors:"P.M. Berná, A. Falcó",journal:"J. Nonlinear Var. Anal. 9, 161–177",year:"2025",status:"published"},
+    {num:"8",title:"On consecutive greedy and other greedy-like type of bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Res. Math. Sci 11, 61",year:"2024",status:"published"},
+    {num:"9",title:"A note on 1-semi-greedy bases in p-Banach spaces with 0 < p ≤ 1",authors:"P.M. Berná, A. García, D. González",journal:"Demonstratio Mathematica, vol. 57, no. 1",year:"2024",status:"published"},
+    {num:"10",title:"Greedy-like bases for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Banach J. Math. Anal. 18, 14",year:"2024",status:"published"},
+    {num:"11",title:"Non-linear approximation by 1-greedy bases",authors:"P.M. Berná, D. González",journal:"J. Math. Anal. App. 531, no. 1, 127769",year:"2024",status:"published"},
+    {num:"12",title:"Extensions and new characterizations of some greedy-type bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Bull. Malay. Math. Sci. Soc. 46, 84",year:"2023",status:"published"},
+    {num:"13",title:"Bidemocratic bases and their connections with other greedy-type bases",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná, S. Lasalle",journal:"Constr. Approx. 57, 125–160",year:"2023",status:"published"},
+    {num:"14",title:"New parameters and Lebesgue-type estimates in greedy approximation",authors:"F. Albiac, J.L. Ansorena, P.M. Berná",journal:"Forum of Mathematics Sigma 10, e113, 1–39",year:"2022",status:"published"},
+    {num:"15",title:"Extensions of democracy-like properties for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Math. Inequal. Appl. 25, no. 4, 1155–1189",year:"2022",status:"published"},
+    {num:"16",title:"On some characterization of greedy-type bases",authors:"P.M. Berná, H.V. Chu",journal:"Expo. Math. 40, 1135–1158",year:"2022",status:"published"},
+    {num:"17",title:"Weaker forms of unconditionality of bases in greedy approximation",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná, S. Lasalle",journal:"Studia Math. 257(1), 1–17",year:"2022",status:"published"},
+    {num:"18",title:"A functional characterization of almost-greedy bases",authors:"P.M. Berná, D. Mondéjar",journal:"Mathematics 9(15):1827",year:"2021",status:"published"},
+    {num:"19",title:"Quasi-greedy bases for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Nonlinear Analysis 208, 112294",year:"2021",status:"published"},
+    {num:"20",title:"Greedy approximation for biorthogonal systems in quasi-Banach spaces",authors:"F. Albiac, J.L. Ansorena, P.M. Berná, P. Wojtaszczyk",journal:"Dissert. Math. 560, 1–88",year:"2021",status:"published"},
+    {num:"21",title:"A note on partially-greedy bases in quasi-Banach spaces",authors:"P.M. Berná",journal:"Studia Math. 259, 225–239",year:"2021",status:"published"},
+    {num:"22",title:"Strong-partially-greedy bases and Lebesgue-type inequalities",authors:"M. Berasategui, P.M. Berná, S. Lasalle",journal:"Constr. Approx. 54, 507–528",year:"2021",status:"published"},
+    {num:"23",title:"Nonlocal diffusion equations with dynamical boundary conditions",authors:"P.M. Berná, J.D. Rossi",journal:"Nonlinear Analysis 195, 111751",year:"2020",status:"published"},
+    {num:"24",title:"Asymptotic greediness of the Haar System in the Lp spaces for 1 < p < ∞",authors:"F. Albiac, J.L. Ansorena, P.M. Berná",journal:"Constr. Approx. 51, 427–440",year:"2020",status:"published"},
+    {num:"25",title:"Characterization of weight-semi-greedy bases",authors:"P.M. Berná",journal:"J. Fourier Anal. Appl. 26, 21",year:"2020",status:"published"},
+    {num:"26",title:"Lebesgue inequalities for Chebyshev Thresholding Greedy Algorithms",authors:"P.M. Berná, Ó. Blasco, G. Garrigós, E. Hernández, T. Oikhberg",journal:"Rev. Matem. Complut. 33, 695–722",year:"2020",status:"published"},
+    {num:"27",title:"The weighted Property (A) and the greedy algorithm",authors:"P.M. Berná, D. Kutzarova, S.J. Dilworth, T. Oikhberg, B. Wallis",journal:"J. Approx. Theory 248, 105300",year:"2019",status:"published"},
+    {num:"28",title:"A remark on approximation with polynomials and greedy bases",authors:"P.M. Berná, A. Pérez",journal:"J. Math. Anal. App. 478(2), 466–475",year:"2019",status:"published"},
+    {num:"29",title:"Equivalence between almost-greedy and semi-greedy bases",authors:"P.M. Berná",journal:"J. Math. Anal. App. 417, 218–225",year:"2019",status:"published"},
+    {num:"30",title:"Embeddings and Lebesgue inequalities for greedy algorithms",authors:"P.M. Berná, Ó. Blasco, G. Garrigós, E. Hernández, T. Oikhberg",journal:"Constr. Approx. 48(3), 415–451",year:"2018",status:"published"},
+    {num:"31",title:"Lebesgue inequalities for the greedy algorithm in general bases",authors:"P.M. Berná, Ó. Blasco, G. Garrigós",journal:"Rev. Mat. Complut. 30, 369–392",year:"2017",status:"published"},
+    {num:"32",title:"The best m-term approximation with respect to polynomials with constant coefficients",authors:"P.M. Berná, Ó. Blasco",journal:"Anal. Math. 43(2), 119–132",year:"2017",status:"published"},
+    {num:"33",title:"Characterization of greedy bases in Banach spaces",authors:"P.M. Berná, Ó. Blasco",journal:"J. Approx. Theory 215, 28–39",year:"2017",status:"published"},
+    {num:"S1",title:"Isometric renormings for greedy bases in Banach spaces, with applications to the Haar System in Lp[0,1]",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Preprint",year:"2025",status:"submitted"},
+    {num:"S2",title:"Convergence Analysis of Greedy Algorithms with Adaptive Relaxation in Hilbert Spaces",authors:"P.M. Berná, A. García",journal:"Preprint",year:"2026",status:"submitted"},
+    {num:"S3",title:"Maximal inequalities, frames and greedy algorithms",authors:"P.M. Berná, D. Freeman, T. Oikhberg, M.A. Taylor",journal:"Preprint",year:"2026",status:"submitted"},
+    {num:"S4",title:"Approximation spaces, greedy classes and Lorentz spaces",authors:"M. Berasategui, P.M. Berná, A. García",journal:"Preprint",year:"2025",status:"submitted"},
+    {num:"S5",title:"When Greedy Approximation Breaks: Counterexamples in Quasi-Banach Spaces",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Preprint",year:"2025",status:"submitted"},
+    {num:"S6",title:"Lebesgue-type estimates for greedy algorithms in quasi-Banach spaces",authors:"M. Berasategui, P.M. Berná, H.V. Chu, A. García",journal:"Preprint",year:"2025",status:"submitted"},
+    {num:"S7",title:"Summability Methods for the Greedy Algorithm in Banach spaces",authors:"M. Berasategui, P.M. Berná, S.J. Dilworth, D. Kutzarova",journal:"Preprint",year:"2025",status:"submitted"},
+  ];
+
+  const talks = [
+    {year:"2025",title:"Universality for non-linear convex variational problems",venue:"Congreso de Jóvenes Investigadores de la RSME 2025",loc:"Bilbao, España"},
+    {year:"2025",title:"Introduction to the TGA in Banach spaces",venue:"Learning Seminar in Banach Spaces – UIUC",loc:"Urbana-Champaign, USA"},
+    {year:"2024",title:"Greedy-like bases for sequences with gaps",venue:"Congreso Bienal de la RSME 2024",loc:"Pamplona, España"},
+    {year:"2023",title:"Recent advances about greedy-like bases",venue:"Sub-Riemannian Geometry, Harmonic Analysis, PDEs – Univ. Bologna",loc:"Bologna, Italia"},
+    {year:"2023",title:"Approximation spaces and greedy-like bases",venue:"Foundation of Computational Mathematics",loc:"París, Francia"},
+    {year:"2023",title:"New advances in greedy approximation theory",venue:"Analysis Seminar – UIUC",loc:"Urbana-Champaign, USA"},
+    {year:"2022",title:"New results about Lebesgue-type parameters",venue:"International E-Conference: A Selcuk Meeting",loc:"Selçuk University (Online)"},
+    {year:"2021",title:"The bidemocracy in the world of greedy approximation",venue:"Approximation and Discretization (Online)",loc:"Moscú"},
+    {year:"2021",title:"Lebesgue-type estimates for the Thresholding Greedy Algorithm",venue:"New Bridges between Mathematics and Data Science",loc:"Valladolid"},
+    {year:"2019",title:"La avaricia de la base de Haar",venue:"EARCO 2019 – Univ. de Valencia",loc:"Valencia, España"},
+  ];
+
+  /* ── RENDER PUBLICATIONS ── */
+  function renderPubs(filter) {
+    const list = document.getElementById('pubList');
+    const items = filter === 'all' ? publications : publications.filter(p => p.status === filter);
+    list.innerHTML = items.map(p => `
+      <div class="pub-item">
+        <div class="pub-num">[${p.num}]</div>
+        <div>
+          <div class="pub-title">${p.title}</div>
+          <div class="pub-authors">${p.authors}</div>
+          <div class="pub-journal">${p.journal}</div>
+        </div>
+        <div class="pub-meta">
+          <div class="pub-year">${p.year}</div>
+          <span class="pub-tag tag-${p.status}">${p.status === 'published' ? 'Published' : 'Submitted'}</span>
+        </div>
+      </div>`).join('');
+  }
+
+  /* ── RENDER TALKS ── */
+  function renderTalks() {
+    const sorted = [...talks].sort((a,b) => b.year - a.year);
+    document.getElementById('talksList').innerHTML = sorted.map(t => `
+      <div class="talk-card">
+        <div class="talk-year">${t.year}</div>
+        <div>
+          <div class="talk-title">${t.title}</div>
+          <div class="talk-venue">${t.venue}</div>
+          <div class="talk-loc">${t.loc}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  renderPubs('all');
+  renderTalks();
+
+  /* ── FILTER BUTTONS ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderPubs(btn.dataset.filter);
+    });
+  });
+
+  /* ── HAMBURGER MENU ── */
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  hamburger.addEventListener('click', () => {
+    const open = navMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  navMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>
