@@ -442,7 +442,7 @@
     <div class="contact-grid">
       <div>
         <p class="contact-intro" data-en="Feel free to reach out for research collaborations, seminar invitations, or questions about mathematics." data-es="No dudes en contactarme para colaboraciones de investigación, invitaciones a seminarios o consultas sobre matemáticas.">Feel free to reach out for research collaborations, seminar invitations, or questions about mathematics.</p>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <form class="contact-form" id="contactForm">
           <input type="text" name="name" placeholder="Your name" required data-en-placeholder="Your name" data-es-placeholder="Tu nombre">
           <input type="email" name="email" placeholder="Your email" required data-en-placeholder="Your email" data-es-placeholder="Tu email">
           <textarea name="message" placeholder="Your message" required data-en-placeholder="Your message" data-es-placeholder="Tu mensaje"></textarea>
@@ -659,23 +659,27 @@ function applyLang() {
 /* ── CONTACT FORM ── */
 const contactForm = document.getElementById('contactForm');
 if(contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = contactForm.querySelector('button');
-    btn.textContent = '...';
-    try {
-      const res = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      });
-      if(res.ok) {
-        contactForm.reset();
-        document.getElementById('formSuccess').style.display = 'block';
-        btn.textContent = currentLang === 'en' ? 'Send message' : 'Enviar mensaje';
-      }
-    } catch(err) {
-      btn.textContent = currentLang === 'en' ? 'Send message' : 'Enviar mensaje';
+
+    const formData = new FormData(contactForm);
+    const name = formData.get('name') || '';
+    const email = formData.get('email') || '';
+    const message = formData.get('message') || '';
+
+    const subject = encodeURIComponent('Message from personal website');
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:pmbl1991@gmail.com?subject=${subject}&body=${body}`;
+
+    const success = document.getElementById('formSuccess');
+    if(success) {
+      success.textContent = currentLang === 'en'
+        ? 'Your email client should now open to send the message.'
+        : 'Se abrirá tu cliente de correo para enviar el mensaje.';
+      success.style.display = 'block';
     }
   });
 }
