@@ -15,164 +15,81 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy: #0c1f3f;
-      --navy2: #1a3560;
-      --gold: #b8922a;
-      --gold-light: #e8c97a;
-      --cream: #f7f4ef;
-      --cream2: #ece8e0;
-      --text: #1a1614;
-      --muted: #5a5550;
-      --border: rgba(30,30,20,0.12);
+      --navy: #0c1f3f; --navy2: #1a3560; --gold: #b8922a; --gold-light: #e8c97a;
+      --cream: #f7f4ef; --cream2: #ece8e0; --text: #1a1614; --muted: #5a5550; --border: rgba(30,30,20,0.12);
       --white: #ffffff;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'EB Garamond', Georgia, serif;
-      background: var(--cream);
-      color: var(--text);
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--navy);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem; height: 56px;
-    }
-    .nav-logo {
-      font-family: 'DM Mono', monospace; font-size: 13px;
-      color: var(--gold-light); letter-spacing: 0.08em; text-decoration: none;
-    }
+    body { font-family: 'EB Garamond', Georgia, serif; background: var(--cream); color: var(--text); font-size: 17px; line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 56px; }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--gold-light); letter-spacing: 0.08em; text-decoration: none; }
     nav ul { display: flex; gap: 2rem; list-style: none; }
-    nav ul li a {
-      font-family: 'DM Mono', monospace; font-size: 11px;
-      color: rgba(255,255,255,0.7); text-decoration: none;
-      letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
-    }
+    nav ul li a { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
     nav ul li a:hover { color: var(--gold-light); }
     .nav-hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--gold-light); font-size: 22px; }
-
-    /* ── HERO ── */
     .hero-wrap { background: var(--navy); }
-    .hero {
-      max-width: 1100px; margin: 0 auto;
-      padding: 7rem 3rem 6rem;
-      display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center;
-    }
-    .hero-text h1 {
-      font-family: 'EB Garamond', serif; font-size: 3.2rem; font-weight: 400;
-      color: #fff; line-height: 1.15; margin-bottom: 0.5rem;
-    }
-    .title-line {
-      font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold-light);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;
-    }
+    .hero { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem 5rem; display: grid; grid-template-columns: 220px 1fr 300px; gap: 3rem; align-items: center; }
+    .hero-photo { text-align: center; }
+    .hero-text h1 { font-family: 'EB Garamond', serif; font-size: 3rem; font-weight: 400; color: #fff; line-height: 1.15; margin-bottom: 0.5rem; }
+    .title-line { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
     .title-line span::before { content: '◆ '; font-size: 8px; }
     .hero-text p { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 520px; margin-bottom: 2rem; }
     .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .hero-links a {
-      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: all 0.2s;
-    }
+    .hero-links a { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.65rem 1.5rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
     .btn-primary { background: var(--gold); color: var(--navy); }
     .btn-primary:hover { background: var(--gold-light); }
     .btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
     .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
-    .ids-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .id-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.05em;
-      padding: 0.35rem 0.75rem; border-radius: 2px; text-decoration: none; border: 1px solid; transition: all 0.2s;
-    }
+    .ids-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .id-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.05em; padding: 0.3rem 0.7rem; border-radius: 2px; text-decoration: none; border: 1px solid; transition: all 0.2s; }
     .id-orcid { background: rgba(166,206,57,0.12); border-color: rgba(166,206,57,0.4); color: #a6ce39; }
     .id-orcid:hover { background: rgba(166,206,57,0.22); }
     .id-scopus { background: rgba(232,201,122,0.12); border-color: rgba(232,201,122,0.35); color: var(--gold-light); }
     .id-scopus:hover { background: rgba(232,201,122,0.22); }
-
-    /* Hero card */
-    .hero-card {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 4px; padding: 2rem;
-    }
-    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .id-scholar { background: rgba(66,133,244,0.12); border-color: rgba(66,133,244,0.35); color: #7ab3f7; }
+    .id-scholar:hover { background: rgba(66,133,244,0.22); }
+    .hero-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 1.75rem; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .stat { text-align: center; }
-    .stat .num { font-family: 'EB Garamond', serif; font-size: 2.6rem; color: var(--gold-light); line-height: 1; }
+    .stat .num { font-family: 'EB Garamond', serif; font-size: 2.4rem; color: var(--gold-light); line-height: 1; }
     .stat .lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
-    .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
-    .hero-badges { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); line-height: 2; }
-
-    /* ── SECTIONS ── */
-    section { padding: 5rem 0; }
+    .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.25rem 0; }
+    .hero-badges { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.45); line-height: 2; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
-    .section-label {
-      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
-    }
+    section { padding: 5rem 0; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
     h2 { font-family: 'EB Garamond', serif; font-size: 2.2rem; font-weight: 400; color: var(--navy); margin-bottom: 2.5rem; }
-
-    /* ── RESEARCH ── */
     .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .research-card {
-      background: var(--white); border: 1px solid var(--border);
-      padding: 1.75rem; border-radius: 3px; position: relative; overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+    .research-card { background: var(--white); border: 1px solid var(--border); padding: 1.75rem; border-radius: 3px; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
     .research-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(12,31,63,0.1); }
     .research-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--navy2); }
     .research-card h3 { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; }
     .research-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── PUBLICATIONS ── */
     #publications { background: var(--cream2); }
     .pub-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .filter-btn {
-      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em;
-      padding: 0.4rem 1rem; border-radius: 2px; border: 1px solid var(--border);
-      background: transparent; cursor: pointer; color: var(--muted); transition: all 0.2s;
-    }
+    .filter-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; padding: 0.4rem 1rem; border-radius: 2px; border: 1px solid var(--border); background: transparent; cursor: pointer; color: var(--muted); transition: all 0.2s; }
     .filter-btn.active, .filter-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
     .pub-list { display: flex; flex-direction: column; }
-    .pub-item {
-      background: var(--white); border: 1px solid var(--border); border-top: none;
-      padding: 1.25rem 1.75rem; display: grid; grid-template-columns: 52px 1fr auto;
-      gap: 1rem; align-items: start; transition: background 0.2s;
-    }
+    .pub-item { background: var(--white); border: 1px solid var(--border); border-top: none; padding: 1.1rem 1.5rem; display: grid; grid-template-columns: 52px 1fr auto; gap: 1rem; align-items: start; transition: background 0.2s; }
     .pub-item:first-child { border-top: 1px solid var(--border); border-radius: 3px 3px 0 0; }
     .pub-item:last-child { border-radius: 0 0 3px 3px; }
     .pub-item:hover { background: var(--cream); }
     .pub-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); padding-top: 3px; }
     .pub-title { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--navy); margin-bottom: 0.2rem; }
-    .pub-authors { font-size: 0.9rem; color: var(--muted); font-style: italic; margin-bottom: 0.2rem; }
+    .pub-title a { color: inherit; text-decoration: none; }
+    .pub-title a:hover { color: var(--gold); text-decoration: underline; }
+    .pub-authors { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-bottom: 0.2rem; }
     .pub-journal { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); }
     .pub-meta { text-align: right; }
     .pub-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
-    .pub-tag {
-      display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px;
-      padding: 2px 7px; border-radius: 2px; margin-top: 4px;
-    }
+    .pub-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 2px; margin-top: 4px; }
     .tag-published { background: #e8f0e0; color: #2d5a1a; }
     .tag-submitted { background: #e8eef7; color: #0c3d6e; }
-
-    /* ── TALKS ── */
     #talks { background: var(--cream); }
     .talks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
-    .talk-card {
-      background: var(--white); border: 1px solid var(--border); border-radius: 3px;
-      padding: 1.5rem; display: grid; grid-template-columns: 40px 1fr; gap: 1rem;
-    }
-    .talk-year {
-      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold);
-      writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
-      align-self: center; letter-spacing: 0.1em;
-    }
+    .talk-card { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 1.5rem; display: grid; grid-template-columns: 40px 1fr; gap: 1rem; }
+    .talk-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); align-self: center; letter-spacing: 0.1em; }
     .talk-title { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--navy); font-style: italic; margin-bottom: 0.25rem; }
     .talk-venue { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 0.2rem; }
     .talk-loc { font-size: 0.85rem; color: var(--muted); }
@@ -182,8 +99,6 @@
     .org-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
     .org-name { font-family: 'EB Garamond', serif; font-size: 0.95rem; color: rgba(255,255,255,0.9); margin-bottom: 0.2rem; }
     .org-place { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-
-    /* ── TEACHING ── */
     #teaching { background: var(--white); }
     .teaching-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .teach-block { padding: 1.75rem; border: 1px solid var(--border); border-radius: 3px; }
@@ -193,22 +108,16 @@
     .teach-course { font-family: 'EB Garamond', serif; font-size: 0.95rem; }
     .teach-years { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap; margin-left: 0.75rem; }
     .phd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .phd-block { }
     .phd-status { font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; margin-bottom: 0.4rem; }
     .phd-name { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1rem; margin-bottom: 0.2rem; }
     .phd-topic { font-size: 0.85rem; color: var(--muted); }
-
-    /* ── CONTACT ── */
     #contact { background: var(--navy); }
     #contact h2 { color: var(--white); }
     #contact .section-label { color: var(--gold-light); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .contact-intro { color: rgba(255,255,255,0.7); margin-bottom: 1.75rem; }
     .contact-detail { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
-    .contact-icon {
-      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px;
-      display: flex; align-items: center; justify-content: center; color: var(--gold-light); font-size: 17px; flex-shrink: 0;
-    }
+    .contact-icon { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: var(--gold-light); font-size: 17px; flex-shrink: 0; }
     .contact-info-text { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.7); }
     .contact-info-text strong { display: block; font-size: 10px; color: var(--gold-light); margin-bottom: 2px; letter-spacing: 0.06em; text-transform: uppercase; }
     .contact-info-text a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
@@ -217,23 +126,17 @@
     .affil-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); padding: 1.1rem 1.4rem; border-radius: 3px; }
     .affil-role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2px; }
     .affil-org { font-family: 'EB Garamond', serif; font-size: 1rem; color: var(--white); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #071525; padding: 1.75rem 3rem;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
+    footer { background: #071525; padding: 1.75rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); }
     .footer-ids { display: flex; gap: 0.75rem; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       nav { padding: 0 1.5rem; }
       nav ul { display: none; }
       nav ul.open { display: flex; flex-direction: column; position: absolute; top: 56px; left: 0; right: 0; background: var(--navy); padding: 1rem 1.5rem; gap: 1rem; }
       .nav-hamburger { display: block; }
-      .hero { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
-      .hero-card { order: -1; }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+      .hero-photo { order: -1; }
+      .hero-card { order: 1; }
       .container { padding: 0 1.5rem; }
       section { padding: 3.5rem 0; }
       .research-grid { grid-template-columns: 1fr 1fr; }
@@ -245,25 +148,20 @@
       footer { padding: 1.5rem; }
     }
     @media (max-width: 600px) {
-      .hero-text h1 { font-size: 2.4rem; }
+      .hero-text h1 { font-size: 2.2rem; }
       .research-grid { grid-template-columns: 1fr; }
       .pub-item { grid-template-columns: 40px 1fr; }
       .pub-meta { display: none; }
       h2 { font-size: 1.8rem; }
     }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-text { animation: fadeUp 0.7s ease both; }
-    .hero-card  { animation: fadeUp 0.7s 0.15s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-photo { animation: fadeUp 0.6s ease both; }
+    .hero-text { animation: fadeUp 0.7s 0.1s ease both; }
+    .hero-card { animation: fadeUp 0.7s 0.2s ease both; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav aria-label="Main navigation">
   <a href="#" class="nav-logo">P. M. Berná</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -278,9 +176,11 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero-wrap">
   <div class="hero">
+    <div class="hero-photo">
+      <img src="data:image/jpeg;base64,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" alt="Pablo M. Berná" style="width:200px;height:200px;object-fit:cover;object-position:center top;border-radius:50%;border:3px solid rgba(184,146,42,0.5);display:block;margin:0 auto;">
+    </div>
     <div class="hero-text">
       <h1>Pablo M.<br>Berná</h1>
       <div class="title-line">
@@ -295,16 +195,14 @@
       </div>
       <div class="ids-row">
         <a href="https://orcid.org/0000-0001-7685-0886" class="id-badge id-orcid" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.891-1.628 3.891-3.722 0-2.016-1.391-3.722-3.891-3.722h-2.297z"/></svg>
-          ORCID 0000-0001-7685-0886
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.891-1.628 3.891-3.722 0-2.016-1.391-3.722-3.891-3.722h-2.297z"/></svg>
+          ORCID
         </a>
-        <a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" class="id-badge id-scopus" target="_blank" rel="noopener">
-          <i class="ti ti-book" style="font-size:13px;" aria-hidden="true"></i>
-          Scopus 57192591875
-        </a>
+        <a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" class="id-badge id-scopus" target="_blank" rel="noopener">Scopus</a>
+        <a href="https://scholar.google.es/citations?user=57wq3JgAAAAJ&hl=en" class="id-badge id-scholar" target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </div>
-    <div class="hero-card" aria-label="Key stats">
+    <div class="hero-card">
       <div class="stat-grid">
         <div class="stat"><div class="num">33</div><div class="lbl">Publications</div></div>
         <div class="stat"><div class="num">7</div><div class="lbl">Under review</div></div>
@@ -313,50 +211,30 @@
       </div>
       <hr class="stat-divider">
       <div class="hero-badges">
-        <div>◆ Sexenio reconocido 2018–2023</div>
+        <div>◆ Research period (sexenio) 2018–2023</div>
         <div>◆ ANECA: Titular + Contratado Doctor</div>
-        <div>◆ Subdirector EPS, CUNEF</div>
-        <div>◆ Secretario adjunto, RSME</div>
+        <div>◆ Deputy Director EPS, CUNEF</div>
+        <div>◆ Deputy Secretary, RSME</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- RESEARCH -->
 <section id="research">
   <div class="container">
     <div class="section-label">Research areas</div>
     <h2>Mathematical Interests</h2>
     <div class="research-grid">
-      <div class="research-card">
-        <h3>Greedy Approximation Theory</h3>
-        <p>Study of thresholding greedy algorithms, Lebesgue-type inequalities, and optimality conditions for bases in Banach and quasi-Banach spaces.</p>
-      </div>
-      <div class="research-card">
-        <h3>Functional Analysis</h3>
-        <p>Geometry of Banach spaces, democratic and bidemocratic bases, quasi-greedy bases, and their structural properties in sequence spaces.</p>
-      </div>
-      <div class="research-card">
-        <h3>AI &amp; Machine Learning Foundations</h3>
-        <p>Mathematical underpinnings of sparse learning, step-size decay in greedy methods, and connections to deep learning and tensor representations.</p>
-      </div>
-      <div class="research-card">
-        <h3>Nonlinear Approximation</h3>
-        <p>Best m-term approximation, approximation spaces, and their relations with Lorentz spaces and interpolation theory.</p>
-      </div>
-      <div class="research-card">
-        <h3>TDA &amp; Greedy Algorithms</h3>
-        <p>Emerging connections between Topological Data Analysis and greedy algorithms as a new research direction.</p>
-      </div>
-      <div class="research-card">
-        <h3>Nonlocal PDE &amp; Variational Problems</h3>
-        <p>Nonlocal diffusion equations with dynamical boundary conditions, and universality results for non-linear convex variational problems.</p>
-      </div>
+      <div class="research-card"><h3>Greedy Approximation Theory</h3><p>Study of thresholding greedy algorithms, Lebesgue-type inequalities, and optimality conditions for bases in Banach and quasi-Banach spaces.</p></div>
+      <div class="research-card"><h3>Functional Analysis</h3><p>Geometry of Banach spaces, democratic and bidemocratic bases, quasi-greedy bases, and their structural properties in sequence spaces.</p></div>
+      <div class="research-card"><h3>AI &amp; Machine Learning Foundations</h3><p>Mathematical underpinnings of sparse learning, step-size decay in greedy methods, and connections to deep learning and tensor representations.</p></div>
+      <div class="research-card"><h3>Nonlinear Approximation</h3><p>Best m-term approximation, approximation spaces, and their relations with Lorentz spaces and interpolation theory.</p></div>
+      <div class="research-card"><h3>TDA &amp; Greedy Algorithms</h3><p>Emerging connections between Topological Data Analysis and greedy algorithms as a new research direction.</p></div>
+      <div class="research-card"><h3>Nonlocal PDE &amp; Variational Problems</h3><p>Nonlocal diffusion equations with dynamical boundary conditions, and universality results for non-linear convex variational problems.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications">
   <div class="container">
     <div class="section-label">Scientific output</div>
@@ -370,7 +248,6 @@
   </div>
 </section>
 
-<!-- TALKS -->
 <section id="talks">
   <div class="container">
     <div class="section-label">Dissemination</div>
@@ -400,7 +277,6 @@
   </div>
 </section>
 
-<!-- TEACHING -->
 <section id="teaching">
   <div class="container">
     <div class="section-label">Academic teaching</div>
@@ -419,36 +295,21 @@
         <div class="teach-item"><span class="teach-course">Mathematics for AI and Deep Learning</span><span class="teach-years">2025–26</span></div>
         <div style="padding:0.4rem 0;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">Master in Artificial Intelligence</div>
         <div class="teach-block-label" style="margin-top:1.5rem;">Previous positions</div>
-        <div class="teach-item"><span class="teach-course">CEU San Pablo: Math I, Dynamical Systems</span><span class="teach-years">2020–22</span></div>
+        <div class="teach-item"><span class="teach-course">CEU San Pablo: Mathematics I, Dynamical Systems</span><span class="teach-years">2020–22</span></div>
         <div class="teach-item"><span class="teach-course">European University: Calculus, Biostatistics</span><span class="teach-years">2020–22</span></div>
       </div>
     </div>
-
-    <!-- PhD -->
     <div style="margin-top:2.5rem;padding:1.75rem;background:var(--cream2);border-radius:3px;border:1px solid var(--border);">
       <div class="section-label" style="margin-bottom:1.25rem;">PhD Supervision</div>
       <div class="phd-grid">
-        <div class="phd-block">
-          <div class="phd-status" style="color:var(--gold);">Ongoing · 2024–2027</div>
-          <div class="phd-name">Andrea García Pons</div>
-          <div class="phd-topic">Greedy algorithms in Banach spaces · CEU Universities</div>
-        </div>
-        <div class="phd-block">
-          <div class="phd-status" style="color:var(--gold);">Ongoing · 2023–2026</div>
-          <div class="phd-name">David González Moro</div>
-          <div class="phd-topic">Greedy-type bases and nonlinear approximation theory · CEU Universities</div>
-        </div>
-        <div class="phd-block">
-          <div class="phd-status" style="color:var(--muted);">Completed · 2019–2023</div>
-          <div class="phd-name">Hung Viet Chu</div>
-          <div class="phd-topic">Thresholding Greedy Algorithm · UIUC (co-advisor)</div>
-        </div>
+        <div><div class="phd-status" style="color:var(--gold);">Ongoing · 2024–2027</div><div class="phd-name">Andrea García Pons</div><div class="phd-topic">Greedy algorithms in Banach spaces · CEU Universities</div></div>
+        <div><div class="phd-status" style="color:var(--gold);">Ongoing · 2023–2026</div><div class="phd-name">David González Moro</div><div class="phd-topic">Greedy-type bases and nonlinear approximation theory · CEU Universities</div></div>
+        <div><div class="phd-status" style="color:var(--muted);">Completed · 2019–2023</div><div class="phd-name">Hung Viet Chu</div><div class="phd-topic">Thresholding Greedy Algorithm · UIUC (co-advisor)</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="section-label">Get in touch</div>
@@ -462,10 +323,10 @@
         </div>
         <div class="contact-detail">
           <div class="contact-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
-          <div class="contact-info-text"><strong>Institution</strong>CUNEF Universidad, Madrid, España</div>
+          <div class="contact-info-text"><strong>Institution</strong>CUNEF Universidad, Madrid, Spain</div>
         </div>
         <div class="contact-detail">
-          <div class="contact-icon" style="padding:0; justify-content:center;">
+          <div class="contact-icon" style="padding:0;justify-content:center;">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="rgba(232,201,122,0.9)" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.891-1.628 3.891-3.722 0-2.016-1.391-3.722-3.891-3.722h-2.297z"/></svg>
           </div>
           <div class="contact-info-text"><strong>ORCID</strong><a href="https://orcid.org/0000-0001-7685-0886" target="_blank" rel="noopener">0000-0001-7685-0886</a></div>
@@ -474,154 +335,143 @@
           <div class="contact-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
           <div class="contact-info-text"><strong>Scopus</strong><a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" target="_blank" rel="noopener">57192591875</a></div>
         </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+          <div class="contact-info-text"><strong>Google Scholar</strong><a href="https://scholar.google.es/citations?user=57wq3JgAAAAJ&hl=en" target="_blank" rel="noopener">View profile</a></div>
+        </div>
       </div>
       <div class="affiliations">
-        <div class="affil-item">
-          <div class="affil-role">Tenure Track Professor · Subdirector EPS</div>
-          <div class="affil-org">CUNEF Universidad, Madrid</div>
-        </div>
-        <div class="affil-item">
-          <div class="affil-role">Secretario adjunto</div>
-          <div class="affil-org">Real Sociedad Matemática Española (RSME)</div>
-        </div>
-        <div class="affil-item">
-          <div class="affil-role">Editorial Board Member</div>
-          <div class="affil-org">Demonstratio Mathematica (Q1) · J. Mathematical Analysis</div>
-        </div>
-        <div class="affil-item">
-          <div class="affil-role">Instructor, Máster en IA</div>
-          <div class="affil-org">UTAMED Universidad</div>
-        </div>
+        <div class="affil-item"><div class="affil-role">Tenure Track Professor · Deputy Director EPS</div><div class="affil-org">CUNEF Universidad, Madrid</div></div>
+        <div class="affil-item"><div class="affil-role">Deputy Secretary</div><div class="affil-org">Royal Spanish Mathematical Society (RSME)</div></div>
+        <div class="affil-item"><div class="affil-role">Editorial Board Member</div><div class="affil-org">Demonstratio Mathematica (Q1) · J. Mathematical Analysis</div></div>
+        <div class="affil-item"><div class="affil-role">Instructor, Master in AI</div><div class="affil-org">UTAMED Universidad</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-copy">© 2026 Pablo M. Berná · CUNEF Universidad</span>
   <div class="footer-ids">
     <a href="https://orcid.org/0000-0001-7685-0886" class="id-badge id-orcid" target="_blank" rel="noopener" style="font-size:10px;">ORCID</a>
     <a href="http://www.scopus.com/inward/authorDetails.url?authorID=57192591875&partnerID=MN8TOARS" class="id-badge id-scopus" target="_blank" rel="noopener" style="font-size:10px;">Scopus</a>
+    <a href="https://scholar.google.es/citations?user=57wq3JgAAAAJ&hl=en" class="id-badge id-scholar" target="_blank" rel="noopener" style="font-size:10px;">Scholar</a>
   </div>
 </footer>
 
 <script>
-  /* ── DATA ── */
-  const publications = [
-    {num:"1",title:"Conditional bases with Property (A)",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Constructive Approximation (accepted March 2026)",year:"2026",status:"published"},
-    {num:"2",title:"Step-Size Decay and Structural Stagnation in Greedy Sparse Learning",authors:"P.M. Berná",journal:"Mathematics 2026, 14(6), 967",year:"2026",status:"published"},
-    {num:"3",title:"The Weak TGA in p-Banach spaces",authors:"P.M. Berná, A. García",journal:"Dolomites Research Notes on Approximation, 19(1), 48–55",year:"2026",status:"published"},
-    {num:"4",title:"On sequential greedy-like bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Ann. Funct. Anal. 16, 36",year:"2025",status:"published"},
-    {num:"5",title:"On approximation spaces and Greedy-type bases",authors:"P.M. Berná, H.V. Chu, E. Hernández",journal:"Ann. Funct. Anal. 16:7",year:"2025",status:"published"},
-    {num:"6",title:"Approximation by polynomials with constant coefficients and the Thresholding Greedy Algorithm",authors:"M. Berasategui, P.M. Berná, D. González",journal:"Carpathian J. Math. 41, no. 1",year:"2025",status:"published"},
-    {num:"7",title:"Universality for non-linear convex variational problems",authors:"P.M. Berná, A. Falcó",journal:"J. Nonlinear Var. Anal. 9, 161–177",year:"2025",status:"published"},
-    {num:"8",title:"On consecutive greedy and other greedy-like type of bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Res. Math. Sci 11, 61",year:"2024",status:"published"},
-    {num:"9",title:"A note on 1-semi-greedy bases in p-Banach spaces with 0 < p ≤ 1",authors:"P.M. Berná, A. García, D. González",journal:"Demonstratio Mathematica, vol. 57, no. 1",year:"2024",status:"published"},
-    {num:"10",title:"Greedy-like bases for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Banach J. Math. Anal. 18, 14",year:"2024",status:"published"},
-    {num:"11",title:"Non-linear approximation by 1-greedy bases",authors:"P.M. Berná, D. González",journal:"J. Math. Anal. App. 531, no. 1, 127769",year:"2024",status:"published"},
-    {num:"12",title:"Extensions and new characterizations of some greedy-type bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Bull. Malay. Math. Sci. Soc. 46, 84",year:"2023",status:"published"},
-    {num:"13",title:"Bidemocratic bases and their connections with other greedy-type bases",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná, S. Lasalle",journal:"Constr. Approx. 57, 125–160",year:"2023",status:"published"},
-    {num:"14",title:"New parameters and Lebesgue-type estimates in greedy approximation",authors:"F. Albiac, J.L. Ansorena, P.M. Berná",journal:"Forum of Mathematics Sigma 10, e113, 1–39",year:"2022",status:"published"},
-    {num:"15",title:"Extensions of democracy-like properties for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Math. Inequal. Appl. 25, no. 4, 1155–1189",year:"2022",status:"published"},
-    {num:"16",title:"On some characterization of greedy-type bases",authors:"P.M. Berná, H.V. Chu",journal:"Expo. Math. 40, 1135–1158",year:"2022",status:"published"},
-    {num:"17",title:"Weaker forms of unconditionality of bases in greedy approximation",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná, S. Lasalle",journal:"Studia Math. 257(1), 1–17",year:"2022",status:"published"},
-    {num:"18",title:"A functional characterization of almost-greedy bases",authors:"P.M. Berná, D. Mondéjar",journal:"Mathematics 9(15):1827",year:"2021",status:"published"},
-    {num:"19",title:"Quasi-greedy bases for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Nonlinear Analysis 208, 112294",year:"2021",status:"published"},
-    {num:"20",title:"Greedy approximation for biorthogonal systems in quasi-Banach spaces",authors:"F. Albiac, J.L. Ansorena, P.M. Berná, P. Wojtaszczyk",journal:"Dissert. Math. 560, 1–88",year:"2021",status:"published"},
-    {num:"21",title:"A note on partially-greedy bases in quasi-Banach spaces",authors:"P.M. Berná",journal:"Studia Math. 259, 225–239",year:"2021",status:"published"},
-    {num:"22",title:"Strong-partially-greedy bases and Lebesgue-type inequalities",authors:"M. Berasategui, P.M. Berná, S. Lasalle",journal:"Constr. Approx. 54, 507–528",year:"2021",status:"published"},
-    {num:"23",title:"Nonlocal diffusion equations with dynamical boundary conditions",authors:"P.M. Berná, J.D. Rossi",journal:"Nonlinear Analysis 195, 111751",year:"2020",status:"published"},
-    {num:"24",title:"Asymptotic greediness of the Haar System in the Lp spaces for 1 < p < ∞",authors:"F. Albiac, J.L. Ansorena, P.M. Berná",journal:"Constr. Approx. 51, 427–440",year:"2020",status:"published"},
-    {num:"25",title:"Characterization of weight-semi-greedy bases",authors:"P.M. Berná",journal:"J. Fourier Anal. Appl. 26, 21",year:"2020",status:"published"},
-    {num:"26",title:"Lebesgue inequalities for Chebyshev Thresholding Greedy Algorithms",authors:"P.M. Berná, Ó. Blasco, G. Garrigós, E. Hernández, T. Oikhberg",journal:"Rev. Matem. Complut. 33, 695–722",year:"2020",status:"published"},
-    {num:"27",title:"The weighted Property (A) and the greedy algorithm",authors:"P.M. Berná, D. Kutzarova, S.J. Dilworth, T. Oikhberg, B. Wallis",journal:"J. Approx. Theory 248, 105300",year:"2019",status:"published"},
-    {num:"28",title:"A remark on approximation with polynomials and greedy bases",authors:"P.M. Berná, A. Pérez",journal:"J. Math. Anal. App. 478(2), 466–475",year:"2019",status:"published"},
-    {num:"29",title:"Equivalence between almost-greedy and semi-greedy bases",authors:"P.M. Berná",journal:"J. Math. Anal. App. 417, 218–225",year:"2019",status:"published"},
-    {num:"30",title:"Embeddings and Lebesgue inequalities for greedy algorithms",authors:"P.M. Berná, Ó. Blasco, G. Garrigós, E. Hernández, T. Oikhberg",journal:"Constr. Approx. 48(3), 415–451",year:"2018",status:"published"},
-    {num:"31",title:"Lebesgue inequalities for the greedy algorithm in general bases",authors:"P.M. Berná, Ó. Blasco, G. Garrigós",journal:"Rev. Mat. Complut. 30, 369–392",year:"2017",status:"published"},
-    {num:"32",title:"The best m-term approximation with respect to polynomials with constant coefficients",authors:"P.M. Berná, Ó. Blasco",journal:"Anal. Math. 43(2), 119–132",year:"2017",status:"published"},
-    {num:"33",title:"Characterization of greedy bases in Banach spaces",authors:"P.M. Berná, Ó. Blasco",journal:"J. Approx. Theory 215, 28–39",year:"2017",status:"published"},
-    {num:"S1",title:"Isometric renormings for greedy bases in Banach spaces, with applications to the Haar System in Lp[0,1]",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Preprint",year:"2025",status:"submitted"},
-    {num:"S2",title:"Convergence Analysis of Greedy Algorithms with Adaptive Relaxation in Hilbert Spaces",authors:"P.M. Berná, A. García",journal:"Preprint",year:"2026",status:"submitted"},
-    {num:"S3",title:"Maximal inequalities, frames and greedy algorithms",authors:"P.M. Berná, D. Freeman, T. Oikhberg, M.A. Taylor",journal:"Preprint",year:"2026",status:"submitted"},
-    {num:"S4",title:"Approximation spaces, greedy classes and Lorentz spaces",authors:"M. Berasategui, P.M. Berná, A. García",journal:"Preprint",year:"2025",status:"submitted"},
-    {num:"S5",title:"When Greedy Approximation Breaks: Counterexamples in Quasi-Banach Spaces",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Preprint",year:"2025",status:"submitted"},
-    {num:"S6",title:"Lebesgue-type estimates for greedy algorithms in quasi-Banach spaces",authors:"M. Berasategui, P.M. Berná, H.V. Chu, A. García",journal:"Preprint",year:"2025",status:"submitted"},
-    {num:"S7",title:"Summability Methods for the Greedy Algorithm in Banach spaces",authors:"M. Berasategui, P.M. Berná, S.J. Dilworth, D. Kutzarova",journal:"Preprint",year:"2025",status:"submitted"},
-  ];
+const publications = [
+  {num:"1",title:"Conditional bases with Property (A)",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Constructive Approximation (accepted March 2026)",year:"2026",status:"published",arxiv:""},
+  {num:"2",title:"Step-Size Decay and Structural Stagnation in Greedy Sparse Learning",authors:"P.M. Berná",journal:"Mathematics 2026, 14(6), 967",year:"2026",status:"published",arxiv:""},
+  {num:"3",title:"The Weak TGA in p-Banach spaces",authors:"P.M. Berná, A. García",journal:"Dolomites Research Notes on Approximation, 19(1), 48–55",year:"2026",status:"published",arxiv:""},
+  {num:"4",title:"On sequential greedy-like bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Ann. Funct. Anal. 16, 36",year:"2025",status:"published",arxiv:""},
+  {num:"5",title:"On approximation spaces and Greedy-type bases",authors:"P.M. Berná, H.V. Chu, E. Hernández",journal:"Ann. Funct. Anal. 16:7",year:"2025",status:"published",arxiv:""},
+  {num:"6",title:"Approximation by polynomials with constant coefficients and the Thresholding Greedy Algorithm",authors:"M. Berasategui, P.M. Berná, D. González",journal:"Carpathian J. Math. 41, no. 1",year:"2025",status:"published",arxiv:""},
+  {num:"7",title:"Universality for non-linear convex variational problems",authors:"P.M. Berná, A. Falcó",journal:"J. Nonlinear Var. Anal. 9, 161–177",year:"2025",status:"published",arxiv:""},
+  {num:"8",title:"On consecutive greedy and other greedy-like type of bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Res. Math. Sci 11, 61",year:"2024",status:"published",arxiv:""},
+  {num:"9",title:"A note on 1-semi-greedy bases in p-Banach spaces with 0 < p ≤ 1",authors:"P.M. Berná, A. García, D. González",journal:"Demonstratio Mathematica, vol. 57, no. 1",year:"2024",status:"published",arxiv:""},
+  {num:"10",title:"Greedy-like bases for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Banach J. Math. Anal. 18, 14",year:"2024",status:"published",arxiv:""},
+  {num:"11",title:"Non-linear approximation by 1-greedy bases",authors:"P.M. Berná, D. González",journal:"J. Math. Anal. App. 531, no. 1, 127769",year:"2024",status:"published",arxiv:""},
+  {num:"12",title:"Extensions and new characterizations of some greedy-type bases",authors:"M. Berasategui, P.M. Berná, H.V. Chu",journal:"Bull. Malay. Math. Sci. Soc. 46, 84",year:"2023",status:"published",arxiv:""},
+  {num:"13",title:"Bidemocratic bases and their connections with other greedy-type bases",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná, S. Lasalle",journal:"Constr. Approx. 57, 125–160",year:"2023",status:"published",arxiv:""},
+  {num:"14",title:"New parameters and Lebesgue-type estimates in greedy approximation",authors:"F. Albiac, J.L. Ansorena, P.M. Berná",journal:"Forum of Mathematics Sigma 10, e113",year:"2022",status:"published",arxiv:""},
+  {num:"15",title:"Extensions of democracy-like properties for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Math. Inequal. Appl. 25, no. 4",year:"2022",status:"published",arxiv:""},
+  {num:"16",title:"On some characterization of greedy-type bases",authors:"P.M. Berná, H.V. Chu",journal:"Expo. Math. 40, 1135–1158",year:"2022",status:"published",arxiv:""},
+  {num:"17",title:"Weaker forms of unconditionality of bases in greedy approximation",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná, S. Lasalle",journal:"Studia Math. 257(1), 1–17",year:"2022",status:"published",arxiv:""},
+  {num:"18",title:"A functional characterization of almost-greedy bases",authors:"P.M. Berná, D. Mondéjar",journal:"Mathematics 9(15):1827",year:"2021",status:"published",arxiv:""},
+  {num:"19",title:"Quasi-greedy bases for sequences with gaps",authors:"M. Berasategui, P.M. Berná",journal:"Nonlinear Analysis 208, 112294",year:"2021",status:"published",arxiv:""},
+  {num:"20",title:"Greedy approximation for biorthogonal systems in quasi-Banach spaces",authors:"F. Albiac, J.L. Ansorena, P.M. Berná, P. Wojtaszczyk",journal:"Dissert. Math. 560, 1–88",year:"2021",status:"published",arxiv:"https://arxiv.org/abs/2004.11207"},
+  {num:"21",title:"A note on partially-greedy bases in quasi-Banach spaces",authors:"P.M. Berná",journal:"Studia Math. 259, 225–239",year:"2021",status:"published",arxiv:""},
+  {num:"22",title:"Strong-partially-greedy bases and Lebesgue-type inequalities",authors:"M. Berasategui, P.M. Berná, S. Lasalle",journal:"Constr. Approx. 54, 507–528",year:"2021",status:"published",arxiv:""},
+  {num:"23",title:"Nonlocal diffusion equations with dynamical boundary conditions",authors:"P.M. Berná, J.D. Rossi",journal:"Nonlinear Analysis 195, 111751",year:"2020",status:"published",arxiv:""},
+  {num:"24",title:"Asymptotic greediness of the Haar System in the Lp spaces for 1 < p < ∞",authors:"F. Albiac, J.L. Ansorena, P.M. Berná",journal:"Constr. Approx. 51, 427–440",year:"2020",status:"published",arxiv:""},
+  {num:"25",title:"Characterization of weight-semi-greedy bases",authors:"P.M. Berná",journal:"J. Fourier Anal. Appl. 26, 21",year:"2020",status:"published",arxiv:""},
+  {num:"26",title:"Lebesgue inequalities for Chebyshev Thresholding Greedy Algorithms",authors:"P.M. Berná, Ó. Blasco, G. Garrigós, E. Hernández, T. Oikhberg",journal:"Rev. Matem. Complut. 33, 695–722",year:"2020",status:"published",arxiv:""},
+  {num:"27",title:"The weighted Property (A) and the greedy algorithm",authors:"P.M. Berná, D. Kutzarova, S.J. Dilworth, T. Oikhberg, B. Wallis",journal:"J. Approx. Theory 248, 105300",year:"2019",status:"published",arxiv:""},
+  {num:"28",title:"A remark on approximation with polynomials and greedy bases",authors:"P.M. Berná, A. Pérez",journal:"J. Math. Anal. App. 478(2), 466–475",year:"2019",status:"published",arxiv:""},
+  {num:"29",title:"Equivalence between almost-greedy and semi-greedy bases",authors:"P.M. Berná",journal:"J. Math. Anal. App. 417, 218–225",year:"2019",status:"published",arxiv:""},
+  {num:"30",title:"Embeddings and Lebesgue inequalities for greedy algorithms",authors:"P.M. Berná, Ó. Blasco, G. Garrigós, E. Hernández, T. Oikhberg",journal:"Constr. Approx. 48(3), 415–451",year:"2018",status:"published",arxiv:""},
+  {num:"31",title:"Lebesgue inequalities for the greedy algorithm in general bases",authors:"P.M. Berná, Ó. Blasco, G. Garrigós",journal:"Rev. Mat. Complut. 30, 369–392",year:"2017",status:"published",arxiv:""},
+  {num:"32",title:"The best m-term approximation with respect to polynomials with constant coefficients",authors:"P.M. Berná, Ó. Blasco",journal:"Anal. Math. 43(2), 119–132",year:"2017",status:"published",arxiv:""},
+  {num:"33",title:"Characterization of greedy bases in Banach spaces",authors:"P.M. Berná, Ó. Blasco",journal:"J. Approx. Theory 215, 28–39",year:"2017",status:"published",arxiv:""},
+  {num:"S1",title:"Isometric renormings for greedy bases in Banach spaces, with applications to the Haar System in Lp[0,1]",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Preprint",year:"2025",status:"submitted",arxiv:""},
+  {num:"S2",title:"Convergence Analysis of Greedy Algorithms with Adaptive Relaxation in Hilbert Spaces",authors:"P.M. Berná, A. García",journal:"Preprint",year:"2026",status:"submitted",arxiv:""},
+  {num:"S3",title:"Maximal inequalities, frames and greedy algorithms",authors:"P.M. Berná, D. Freeman, T. Oikhberg, M.A. Taylor",journal:"Preprint",year:"2026",status:"submitted",arxiv:""},
+  {num:"S4",title:"Approximation spaces, greedy classes and Lorentz spaces",authors:"M. Berasategui, P.M. Berná, A. García",journal:"Preprint",year:"2025",status:"submitted",arxiv:""},
+  {num:"S5",title:"When Greedy Approximation Breaks: Counterexamples in Quasi-Banach Spaces",authors:"F. Albiac, J.L. Ansorena, M. Berasategui, P.M. Berná",journal:"Preprint",year:"2025",status:"submitted",arxiv:""},
+  {num:"S6",title:"Lebesgue-type estimates for greedy algorithms in quasi-Banach spaces",authors:"M. Berasategui, P.M. Berná, H.V. Chu, A. García",journal:"Preprint",year:"2025",status:"submitted",arxiv:""},
+  {num:"S7",title:"Summability Methods for the Greedy Algorithm in Banach spaces",authors:"M. Berasategui, P.M. Berná, S.J. Dilworth, D. Kutzarova",journal:"Preprint",year:"2025",status:"submitted",arxiv:""},
+];
 
-  const talks = [
-    {year:"2025",title:"Universality for non-linear convex variational problems",venue:"Congreso de Jóvenes Investigadores de la RSME 2025",loc:"Bilbao, España"},
-    {year:"2025",title:"Introduction to the TGA in Banach spaces",venue:"Learning Seminar in Banach Spaces – UIUC",loc:"Urbana-Champaign, USA"},
-    {year:"2024",title:"Greedy-like bases for sequences with gaps",venue:"Congreso Bienal de la RSME 2024",loc:"Pamplona, España"},
-    {year:"2023",title:"Recent advances about greedy-like bases",venue:"Sub-Riemannian Geometry, Harmonic Analysis, PDEs – Univ. Bologna",loc:"Bologna, Italia"},
-    {year:"2023",title:"Approximation spaces and greedy-like bases",venue:"Foundation of Computational Mathematics",loc:"París, Francia"},
-    {year:"2023",title:"New advances in greedy approximation theory",venue:"Analysis Seminar – UIUC",loc:"Urbana-Champaign, USA"},
-    {year:"2022",title:"New results about Lebesgue-type parameters",venue:"International E-Conference: A Selcuk Meeting",loc:"Selçuk University (Online)"},
-    {year:"2021",title:"The bidemocracy in the world of greedy approximation",venue:"Approximation and Discretization (Online)",loc:"Moscú"},
-    {year:"2021",title:"Lebesgue-type estimates for the Thresholding Greedy Algorithm",venue:"New Bridges between Mathematics and Data Science",loc:"Valladolid"},
-    {year:"2019",title:"La avaricia de la base de Haar",venue:"EARCO 2019 – Univ. de Valencia",loc:"Valencia, España"},
-  ];
+const talks = [
+  {year:"2025",title:"Universality for non-linear convex variational problems",venue:"RSME Young Researchers Conference 2025",loc:"Bilbao, Spain"},
+  {year:"2025",title:"Introduction to the TGA in Banach spaces",venue:"Learning Seminar in Banach Spaces – UIUC",loc:"Urbana-Champaign, USA"},
+  {year:"2024",title:"Greedy-like bases for sequences with gaps",venue:"RSME Biennial Congress 2024",loc:"Pamplona, Spain"},
+  {year:"2023",title:"Recent advances about greedy-like bases",venue:"Sub-Riemannian Geometry, Harmonic Analysis, PDEs – Univ. Bologna",loc:"Bologna, Italy"},
+  {year:"2023",title:"Approximation spaces and greedy-like bases",venue:"Foundation of Computational Mathematics",loc:"Paris, France"},
+  {year:"2023",title:"New advances in greedy approximation theory",venue:"Analysis Seminar – UIUC",loc:"Urbana-Champaign, USA"},
+  {year:"2022",title:"New results about Lebesgue-type parameters",venue:"International E-Conference: A Selcuk Meeting",loc:"Selçuk University (Online)"},
+  {year:"2021",title:"The bidemocracy in the world of greedy approximation",venue:"Approximation and Discretization (Online)",loc:"Moscow"},
+  {year:"2021",title:"Lebesgue-type estimates for the Thresholding Greedy Algorithm",venue:"New Bridges between Mathematics and Data Science",loc:"Valladolid, Spain"},
+  {year:"2019",title:"La avaricia de la base de Haar",venue:"EARCO 2019 – Univ. de Valencia",loc:"Valencia, Spain"},
+];
 
-  /* ── RENDER PUBLICATIONS ── */
-  function renderPubs(filter) {
-    const list = document.getElementById('pubList');
-    const items = filter === 'all' ? publications : publications.filter(p => p.status === filter);
-    list.innerHTML = items.map(p => `
-      <div class="pub-item">
-        <div class="pub-num">[${p.num}]</div>
-        <div>
-          <div class="pub-title">${p.title}</div>
-          <div class="pub-authors">${p.authors}</div>
-          <div class="pub-journal">${p.journal}</div>
-        </div>
-        <div class="pub-meta">
-          <div class="pub-year">${p.year}</div>
-          <span class="pub-tag tag-${p.status}">${p.status === 'published' ? 'Published' : 'Submitted'}</span>
-        </div>
-      </div>`).join('');
-  }
+function renderPubs(filter) {
+  const list = document.getElementById('pubList');
+  const items = filter === 'all' ? publications : publications.filter(p => p.status === filter);
+  list.innerHTML = items.map(p => {
+    const titleHtml = p.arxiv ? `<a href="${p.arxiv}" target="_blank" rel="noopener">${p.title}</a>` : p.title;
+    return `<div class="pub-item">
+      <div class="pub-num">[${p.num}]</div>
+      <div>
+        <div class="pub-title">${titleHtml}</div>
+        <div class="pub-authors">${p.authors}</div>
+        <div class="pub-journal">${p.journal}</div>
+      </div>
+      <div class="pub-meta">
+        <div class="pub-year">${p.year}</div>
+        <span class="pub-tag tag-${p.status}">${p.status==='published'?'Published':'Submitted'}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
 
-  /* ── RENDER TALKS ── */
-  function renderTalks() {
-    const sorted = [...talks].sort((a,b) => b.year - a.year);
-    document.getElementById('talksList').innerHTML = sorted.map(t => `
-      <div class="talk-card">
-        <div class="talk-year">${t.year}</div>
-        <div>
-          <div class="talk-title">${t.title}</div>
-          <div class="talk-venue">${t.venue}</div>
-          <div class="talk-loc">${t.loc}</div>
-        </div>
-      </div>`).join('');
-  }
+function renderTalks() {
+  const sorted = [...talks].sort((a,b) => b.year - a.year);
+  document.getElementById('talksList').innerHTML = sorted.map(t => `
+    <div class="talk-card">
+      <div class="talk-year">${t.year}</div>
+      <div>
+        <div class="talk-title">${t.title}</div>
+        <div class="talk-venue">${t.venue}</div>
+        <div class="talk-loc">${t.loc}</div>
+      </div>
+    </div>`).join('');
+}
 
-  renderPubs('all');
-  renderTalks();
+renderPubs('all');
+renderTalks();
 
-  /* ── FILTER BUTTONS ── */
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderPubs(btn.dataset.filter);
-    });
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderPubs(btn.dataset.filter);
   });
+});
 
-  /* ── HAMBURGER MENU ── */
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('navMenu');
-  hamburger.addEventListener('click', () => {
-    const open = navMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+hamburger.addEventListener('click', () => {
+  const open = navMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+navMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   });
-  navMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
+});
 </script>
 </body>
 </html>
